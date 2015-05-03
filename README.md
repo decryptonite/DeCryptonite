@@ -6,6 +6,7 @@ Version 1.0  is a base version, which is fully functional. It has the capability
 2. Custom ActionBar for NavigationBarActivity has to be created.
 3. Look and feel of navigation bar has to be changed.
 4. Overall layout and design has to changed.
-5. A progress bar has to be shown below the actionbar when the app is connecting to the server.
-6. Query to the server should be limited. For example saving the questions on the user device.
-7. Once you login you dont have to login again, eg. Facebook Messenger App.
+5. A splash/starting screen has to be created, with Jayesh's .gif or .mp4
+6. A progress bar has to be shown below the actionbar when the app is connecting to the server.
+7. Query to the server should be limited. For example saving the questions on the user device.
+8. Once you login you dont have to login again, eg. Facebook Messenger App.
