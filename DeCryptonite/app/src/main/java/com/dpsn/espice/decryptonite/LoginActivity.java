@@ -93,7 +93,6 @@ public class LoginActivity extends ActionBarActivity implements OnClickListener 
     public void onClick(View v) {
         if(v.getId() == R.id.loginButton){
             //Get the values entered by the user
-            loginButton.setClickable(false);
             String givenUsername = usernameEditText.getText().toString();
             String givenPassword = passwordEditText.getText().toString();
             if (givenUsername.equals("") || givenPassword.equals("")){
