@@ -1,33 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#636363">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/e_spice"
+        android:layout_marginTop="10dp"
+        android:id="@+id/spicelogo"
+        android:layout_centerHorizontal="true"
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/info_line1"
+        android:gravity="center"
         android:textSize="20sp"
+        android:layout_below="@+id/spicelogo"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="20dp"
-        android:textColor="#000"/>
+        android:id="@+id/line1"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_line2"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_below="@+id/line1"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/line2"
+        android:layout_marginTop="20dp"
+        android:textColor="#00bcd4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_line3"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_below="@+id/line2"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/line3"
+        android:textColor="#FFF"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/info_bestWishes"
-        android:textColor="#000"
+        android:textColor="#00bcd4"
+        android:gravity="center"
         android:paddingTop="5dp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
+        android:layout_below="@+id/line3"
+        android:layout_marginTop="20dp"
         android:textSize="20sp"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="125dp"
-        android:src="@drawable/e_spice"/>
 
-</LinearLayout>
+</RelativeLayout>
