@@ -1,20 +1,27 @@
 package com.dpsn.espice.decryptonite;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Created by Sony on 30-04-2015.
@@ -93,13 +100,40 @@ public class NavigationDrawerActivity extends Activity {
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setHomeButtonEnabled(true);
+
+        CreateCustomActionBar(this.getActionBar());
 
         //Set Dashboard Screen to come when user logs in
         Fragment fragment = new DashboardFragment();
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+        NavigationDrawerActivity.mDrawerList.setItemChecked(0, true);
+        setTitle("Dashboard");
+    }
+
+    private void CreateCustomActionBar(ActionBar bar) {
+        int color = getResources().getColor(R.color.actionbar_color);
+        String sColor = "#" + Integer.toHexString(color);
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor(sColor)));
+        bar.setDisplayShowHomeEnabled(false);
+        bar.setDisplayShowTitleEnabled(false);
+        LayoutInflater mInflater = LayoutInflater.from(this);
+
+        View mCustomView = mInflater.inflate(R.layout.action_bar, null);
+        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
+        mTitleTextView.setText(getResources().getString(R.string.app_name));
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/e.otf");
+        mTitleTextView.setTypeface(custom_font, Typeface.BOLD);
+        mTitleTextView.setTextSize(35);
+
+        bar.setCustomView(mCustomView);
+        bar.setDisplayShowCustomEnabled(true);
+
+        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM |
+                ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_HOME_AS_UP);
     }
 
     @Override
@@ -159,6 +193,9 @@ public class NavigationDrawerActivity extends Activity {
                             .commit();
                     break;
                 case RULES:
+                    fragment = new RulesFragment();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment)
+                            .commit();
                     break;
                 case PLAY:
                     fragment = new PlayFragment();
